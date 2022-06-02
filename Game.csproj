@@ -1,0 +1,559 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\NUnit.3.13.3\build\NUnit.props" Condition="Exists('packages\NUnit.3.13.3\build\NUnit.props')" />
+  <Import Project="packages\NUnit3TestAdapter.4.2.1\build\net35\NUnit3TestAdapter.props" Condition="Exists('packages\NUnit3TestAdapter.4.2.1\build\net35\NUnit3TestAdapter.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{30F60B81-55C3-48B0-885E-E65E84EE7C4C}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Game</RootNamespace>
+    <AssemblyName>Game</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FluentAssertions, Version=6.7.0.0, Culture=neutral, PublicKeyToken=33f2691a05b67b6a, processorArchitecture=MSIL">
+      <HintPath>packages\FluentAssertions.6.7.0\lib\net47\FluentAssertions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\MSTest.TestFramework.2.2.10\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\MSTest.TestFramework.2.2.10\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework, Version=3.13.3.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <HintPath>packages\NUnit.3.13.3\lib\net45\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.IO, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.IO.4.3.0\lib\net462\System.IO.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http, Version=4.1.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Net.Http.4.3.4\lib\net46\System.Net.Http.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.4.3.0\lib\net462\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.CompilerServices.Unsafe.4.5.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Cryptography.Algorithms.4.3.0\lib\net463\System.Security.Cryptography.Algorithms.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Threading.Tasks.Extensions.4.5.0\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Control\DeadControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\DeadControl.Designer.cs">
+      <DependentUpon>DeadControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Control\GameControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\GameControl.Designer.cs">
+      <DependentUpon>GameControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Control\MonsterAI.cs" />
+    <Compile Include="Control\PlayerControl.cs" />
+    <Compile Include="Control\MenuControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\MenuControl.Designer.cs">
+      <DependentUpon>MenuControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Control\SettingsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\SettingsControl.Designer.cs">
+      <DependentUpon>SettingsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Control\WinControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\WinControl.Designer.cs">
+      <DependentUpon>WinControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Extensions\GraphicsExtensions.cs" />
+    <Compile Include="Extensions\RectangleExtensions.cs" />
+    <Compile Include="Model\Camera.cs" />
+    <Compile Include="Model\Collisions.cs" />
+    <Compile Include="GameForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GameForm.Designer.cs">
+      <DependentUpon>GameForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Enums\Difficulty.cs" />
+    <Compile Include="Model\Enums\Direction.cs" />
+    <Compile Include="Model\Enums\EntityState.cs" />
+    <Compile Include="Model\Enums\GameStage.cs" />
+    <Compile Include="Model\Line.cs" />
+    <Compile Include="Model\Vector.cs" />
+    <Compile Include="Model\Monster.cs" />
+    <Compile Include="Model\Level.cs" />
+    <Compile Include="Model\GameEntity.cs" />
+    <Compile Include="Model\Platform.cs" />
+    <Compile Include="Model\Player.cs" />
+    <Compile Include="Model\RigidBody.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\EnemySprites.cs" />
+    <Compile Include="View\MonsterAnimation.cs" />
+    <Compile Include="View\PlayerAnimation.cs" />
+    <Compile Include="View\Folders.cs" />
+    <Compile Include="Model\IEntity.cs" />
+    <Compile Include="View\PlayerSprites.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="View\EnemySprites\Right\03_take_hit_right\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="View\Background\background.png" />
+    <Content Include="View\Buttons\OptionsButton.png" />
+    <Content Include="View\Buttons\GameOverButton.png" />
+    <Content Include="View\Buttons\WinButton.png" />
+    <Content Include="View\Buttons\PlayButton.png" />
+    <Content Include="View\Buttons\QuitButton.png" />
+    <Content Include="View\EnemySprites\Left\01_idle_left\idle_1.png" />
+    <Content Include="View\EnemySprites\Left\01_idle_left\idle_2.png" />
+    <Content Include="View\EnemySprites\Left\01_idle_left\idle_3.png" />
+    <Content Include="View\EnemySprites\Left\01_idle_left\idle_4.png" />
+    <Content Include="View\EnemySprites\Left\01_idle_left\idle_5.png" />
+    <Content Include="View\EnemySprites\Left\01_idle_left\idle_6.png" />
+    <Content Include="View\EnemySprites\Left\02_move_left\move_1.png" />
+    <Content Include="View\EnemySprites\Left\02_move_left\move_2.png" />
+    <Content Include="View\EnemySprites\Left\02_move_left\move_3.png" />
+    <Content Include="View\EnemySprites\Left\02_move_left\move_4.png" />
+    <Content Include="View\EnemySprites\Left\02_move_left\move_5.png" />
+    <Content Include="View\EnemySprites\Left\02_move_left\move_6.png" />
+    <Content Include="View\EnemySprites\Left\02_move_left\move_7.png" />
+    <Content Include="View\EnemySprites\Left\02_move_left\move_8.png" />
+    <Content Include="View\EnemySprites\Left\03_take_hit_left\take_hit_1.png" />
+    <Content Include="View\EnemySprites\Left\03_take_hit_left\take_hit_2.png" />
+    <Content Include="View\EnemySprites\Left\03_take_hit_left\take_hit_3.png" />
+    <Content Include="View\EnemySprites\Left\03_take_hit_left\take_hit_4.png" />
+    <Content Include="View\EnemySprites\Left\03_take_hit_left\take_hit_5.png" />
+    <Content Include="View\EnemySprites\Left\03_take_hit_left\take_hit_6.png" />
+    <Content Include="View\EnemySprites\Right\01_idle_right\idle_1.SVtkH.png" />
+    <Content Include="View\EnemySprites\Right\01_idle_right\idle_2.ebyaN.png" />
+    <Content Include="View\EnemySprites\Right\01_idle_right\idle_3.wo5r6.png" />
+    <Content Include="View\EnemySprites\Right\01_idle_right\idle_4.Eu4p2.png" />
+    <Content Include="View\EnemySprites\Right\01_idle_right\idle_5.n6Ty0.png" />
+    <Content Include="View\EnemySprites\Right\01_idle_right\idle_6.5Qk94.png" />
+    <Content Include="View\EnemySprites\Right\02_move_right\move_1.Z7qgx.png" />
+    <Content Include="View\EnemySprites\Right\02_move_right\move_2.chlcZ.png" />
+    <Content Include="View\EnemySprites\Right\02_move_right\move_3.EOjeQ.png" />
+    <Content Include="View\EnemySprites\Right\02_move_right\move_4.vhvmt.png" />
+    <Content Include="View\EnemySprites\Right\02_move_right\move_5.2Bb3o.png" />
+    <Content Include="View\EnemySprites\Right\02_move_right\move_6.W6kiA.png" />
+    <Content Include="View\EnemySprites\Right\02_move_right\move_7.JK98P.png" />
+    <Content Include="View\EnemySprites\Right\02_move_right\move_8.YxYR1.png" />
+    <Content Include="View\Logo\www.EasyImages.net,394a41e841183d625a09ae21cf3b8372.gif" />
+    <Content Include="View\PlatformSprites\image_part_001.png" />
+    <Content Include="View\PlatformSprites\image_part_002.png" />
+    <Content Include="View\PlatformSprites\image_part_003.png" />
+    <Content Include="View\PlayerSprites\Left\01_idle_left\idle_1.sgdwy.png" />
+    <Content Include="View\PlayerSprites\Left\01_idle_left\idle_2.KpIdi.png" />
+    <Content Include="View\PlayerSprites\Left\01_idle_left\idle_3.FUxNz.png" />
+    <Content Include="View\PlayerSprites\Left\01_idle_left\idle_4.xlErl.png" />
+    <Content Include="View\PlayerSprites\Left\01_idle_left\idle_5.iJDit.png" />
+    <Content Include="View\PlayerSprites\Left\01_idle_left\idle_6.rmfRa.png" />
+    <Content Include="View\PlayerSprites\Left\01_idle_left\idle_7.71YPj.png" />
+    <Content Include="View\PlayerSprites\Left\01_idle_left\idle_8.e59OW.png" />
+    <Content Include="View\PlayerSprites\Left\02_run_left\run_1.6gH1q.png" />
+    <Content Include="View\PlayerSprites\Left\02_run_left\run_2.R55fN.png" />
+    <Content Include="View\PlayerSprites\Left\02_run_left\run_3.NYwhT.png" />
+    <Content Include="View\PlayerSprites\Left\02_run_left\run_4.gmT57.png" />
+    <Content Include="View\PlayerSprites\Left\02_run_left\run_5.NuAWS.png" />
+    <Content Include="View\PlayerSprites\Left\02_run_left\run_6.efpLz.png" />
+    <Content Include="View\PlayerSprites\Left\02_run_left\run_7.tcped.png" />
+    <Content Include="View\PlayerSprites\Left\02_run_left\run_8.2tAPv.png" />
+    <Content Include="View\PlayerSprites\Left\03_jump_down_left\jump_down_1.XG16a.png" />
+    <Content Include="View\PlayerSprites\Left\03_jump_down_left\jump_down_2.UENIQ.png" />
+    <Content Include="View\PlayerSprites\Left\03_jump_down_left\jump_down_3.0dmwz.png" />
+    <Content Include="View\PlayerSprites\Left\03_jump_left\jump_1.31s4O.png" />
+    <Content Include="View\PlayerSprites\Left\03_jump_left\jump_10.ENlY8.png" />
+    <Content Include="View\PlayerSprites\Left\03_jump_left\jump_11.bIv4C.png" />
+    <Content Include="View\PlayerSprites\Left\03_jump_left\jump_12.Nr92v.png" />
+    <Content Include="View\PlayerSprites\Left\03_jump_left\jump_13.sSeIt.png" />
+    <Content Include="View\PlayerSprites\Left\03_jump_left\jump_14.70DpX.png" />
+    <Content Include="View\PlayerSprites\Left\03_jump_left\jump_15.p6n8n.png" />
+    <Content Include="View\PlayerSprites\Left\03_jump_left\jump_16.Xw7Ia.png" />
+    <Content Include="View\PlayerSprites\Left\03_jump_left\jump_17.kzdTY.png" />
+    <Content Include="View\PlayerSprites\Left\03_jump_left\jump_18.qJd7j.png" />
+    <Content Include="View\PlayerSprites\Left\03_jump_left\jump_19.qFAlS.png" />
+    <Content Include="View\PlayerSprites\Left\03_jump_left\jump_2.LdFS5.png" />
+    <Content Include="View\PlayerSprites\Left\03_jump_left\jump_20.i2WmG.png" />
+    <Content Include="View\PlayerSprites\Left\03_jump_left\jump_3.x6pYz.png" />
+    <Content Include="View\PlayerSprites\Left\03_jump_left\jump_4.pm53V.png" />
+    <Content Include="View\PlayerSprites\Left\03_jump_left\jump_5.g5ubF.png" />
+    <Content Include="View\PlayerSprites\Left\03_jump_left\jump_6.nxMhZ.png" />
+    <Content Include="View\PlayerSprites\Left\03_jump_left\jump_7.8RS5T.png" />
+    <Content Include="View\PlayerSprites\Left\03_jump_left\jump_8.nRVbD.png" />
+    <Content Include="View\PlayerSprites\Left\03_jump_left\jump_9.dA7qS.png" />
+    <Content Include="View\PlayerSprites\Left\03_jump_up_left\jump_up_1.55OeE.png" />
+    <Content Include="View\PlayerSprites\Left\03_jump_up_left\jump_up_2.Wrpz9.png" />
+    <Content Include="View\PlayerSprites\Left\03_jump_up_left\jump_up_3.YLVaV.png" />
+    <Content Include="View\PlayerSprites\Left\04_roll_left\roll_1.p79sf.png" />
+    <Content Include="View\PlayerSprites\Left\04_roll_left\roll_2.TyA6h.png" />
+    <Content Include="View\PlayerSprites\Left\04_roll_left\roll_3.J5VU1.png" />
+    <Content Include="View\PlayerSprites\Left\04_roll_left\roll_4.eSR1u.png" />
+    <Content Include="View\PlayerSprites\Left\04_roll_left\roll_5.r3TO9.png" />
+    <Content Include="View\PlayerSprites\Left\04_roll_left\roll_6.EmjRV.png" />
+    <Content Include="View\PlayerSprites\Left\04_roll_left\roll_7.ehjYq.png" />
+    <Content Include="View\PlayerSprites\Left\04_roll_left\roll_8.e4loZ.png" />
+    <Content Include="View\PlayerSprites\Left\05_1_atk_left\1_atk_1.b8F7m.png" />
+    <Content Include="View\PlayerSprites\Left\05_1_atk_left\1_atk_10.i32Ys.png" />
+    <Content Include="View\PlayerSprites\Left\05_1_atk_left\1_atk_11.R8vos.png" />
+    <Content Include="View\PlayerSprites\Left\05_1_atk_left\1_atk_2.WJWKM.png" />
+    <Content Include="View\PlayerSprites\Left\05_1_atk_left\1_atk_3.T6z3T.png" />
+    <Content Include="View\PlayerSprites\Left\05_1_atk_left\1_atk_4.amgK2.png" />
+    <Content Include="View\PlayerSprites\Left\05_1_atk_left\1_atk_5.lEt0s.png" />
+    <Content Include="View\PlayerSprites\Left\05_1_atk_left\1_atk_6.JqRsS.png" />
+    <Content Include="View\PlayerSprites\Left\05_1_atk_left\1_atk_7.WRkza.png" />
+    <Content Include="View\PlayerSprites\Left\05_1_atk_left\1_atk_8.ZXeif.png" />
+    <Content Include="View\PlayerSprites\Left\05_1_atk_left\1_atk_9.gvDjK.png" />
+    <Content Include="View\PlayerSprites\Left\06_2_atk_left\2_atk_1.GyLYJ.png" />
+    <Content Include="View\PlayerSprites\Left\06_2_atk_left\2_atk_10.3ucHI.png" />
+    <Content Include="View\PlayerSprites\Left\06_2_atk_left\2_atk_11.SyPql.png" />
+    <Content Include="View\PlayerSprites\Left\06_2_atk_left\2_atk_12.rqom8.png" />
+    <Content Include="View\PlayerSprites\Left\06_2_atk_left\2_atk_13.RZyjy.png" />
+    <Content Include="View\PlayerSprites\Left\06_2_atk_left\2_atk_14.w8ILF.png" />
+    <Content Include="View\PlayerSprites\Left\06_2_atk_left\2_atk_15.Ijx9Q.png" />
+    <Content Include="View\PlayerSprites\Left\06_2_atk_left\2_atk_16.xLUyK.png" />
+    <Content Include="View\PlayerSprites\Left\06_2_atk_left\2_atk_17.ajkN1.png" />
+    <Content Include="View\PlayerSprites\Left\06_2_atk_left\2_atk_18.YHpDs.png" />
+    <Content Include="View\PlayerSprites\Left\06_2_atk_left\2_atk_19.7nGk3.png" />
+    <Content Include="View\PlayerSprites\Left\06_2_atk_left\2_atk_2.ne8Ja.png" />
+    <Content Include="View\PlayerSprites\Left\06_2_atk_left\2_atk_3.MrPZQ.png" />
+    <Content Include="View\PlayerSprites\Left\06_2_atk_left\2_atk_4.0dc7Y.png" />
+    <Content Include="View\PlayerSprites\Left\06_2_atk_left\2_atk_5.Y6Job.png" />
+    <Content Include="View\PlayerSprites\Left\06_2_atk_left\2_atk_6.Pce1D.png" />
+    <Content Include="View\PlayerSprites\Left\06_2_atk_left\2_atk_7.rRpYj.png" />
+    <Content Include="View\PlayerSprites\Left\06_2_atk_left\2_atk_8.GmB7g.png" />
+    <Content Include="View\PlayerSprites\Left\06_2_atk_left\2_atk_9.VtpGV.png" />
+    <Content Include="View\PlayerSprites\Left\07_3_atk_left\3_atk_1.QR7et.png" />
+    <Content Include="View\PlayerSprites\Left\07_3_atk_left\3_atk_10.Mb7Uo.png" />
+    <Content Include="View\PlayerSprites\Left\07_3_atk_left\3_atk_11.rdnUk.png" />
+    <Content Include="View\PlayerSprites\Left\07_3_atk_left\3_atk_12.6YBRG.png" />
+    <Content Include="View\PlayerSprites\Left\07_3_atk_left\3_atk_13.7ftgH.png" />
+    <Content Include="View\PlayerSprites\Left\07_3_atk_left\3_atk_14.I3akP.png" />
+    <Content Include="View\PlayerSprites\Left\07_3_atk_left\3_atk_15.8mktp.png" />
+    <Content Include="View\PlayerSprites\Left\07_3_atk_left\3_atk_16.GRb7I.png" />
+    <Content Include="View\PlayerSprites\Left\07_3_atk_left\3_atk_17.r4tf5.png" />
+    <Content Include="View\PlayerSprites\Left\07_3_atk_left\3_atk_18.awcpd.png" />
+    <Content Include="View\PlayerSprites\Left\07_3_atk_left\3_atk_19.WepZ1.png" />
+    <Content Include="View\PlayerSprites\Left\07_3_atk_left\3_atk_2.Rf9UH.png" />
+    <Content Include="View\PlayerSprites\Left\07_3_atk_left\3_atk_20.5pnt2.png" />
+    <Content Include="View\PlayerSprites\Left\07_3_atk_left\3_atk_21.5okB7.png" />
+    <Content Include="View\PlayerSprites\Left\07_3_atk_left\3_atk_22.YQhA0.png" />
+    <Content Include="View\PlayerSprites\Left\07_3_atk_left\3_atk_23.SEcub.png" />
+    <Content Include="View\PlayerSprites\Left\07_3_atk_left\3_atk_24.CDTej.png" />
+    <Content Include="View\PlayerSprites\Left\07_3_atk_left\3_atk_25.23ZOw.png" />
+    <Content Include="View\PlayerSprites\Left\07_3_atk_left\3_atk_26.LV1Ss.png" />
+    <Content Include="View\PlayerSprites\Left\07_3_atk_left\3_atk_27.JnrMZ.png" />
+    <Content Include="View\PlayerSprites\Left\07_3_atk_left\3_atk_28.wuGij.png" />
+    <Content Include="View\PlayerSprites\Left\07_3_atk_left\3_atk_3.Xl5rg.png" />
+    <Content Include="View\PlayerSprites\Left\07_3_atk_left\3_atk_4.UPCjF.png" />
+    <Content Include="View\PlayerSprites\Left\07_3_atk_left\3_atk_5.sttht.png" />
+    <Content Include="View\PlayerSprites\Left\07_3_atk_left\3_atk_6.k12Ij.png" />
+    <Content Include="View\PlayerSprites\Left\07_3_atk_left\3_atk_7.6vWBP.png" />
+    <Content Include="View\PlayerSprites\Left\07_3_atk_left\3_atk_8.ARuNE.png" />
+    <Content Include="View\PlayerSprites\Left\07_3_atk_left\3_atk_9.Uc43u.png" />
+    <Content Include="View\PlayerSprites\Left\08_special_atk_left\sp_atk_1.nbIYu.png" />
+    <Content Include="View\PlayerSprites\Left\08_special_atk_left\sp_atk_10.K5Qxw.png" />
+    <Content Include="View\PlayerSprites\Left\08_special_atk_left\sp_atk_11.WgjQh.png" />
+    <Content Include="View\PlayerSprites\Left\08_special_atk_left\sp_atk_12.3CCAB.png" />
+    <Content Include="View\PlayerSprites\Left\08_special_atk_left\sp_atk_13.ckxpV.png" />
+    <Content Include="View\PlayerSprites\Left\08_special_atk_left\sp_atk_14.NZRxS.png" />
+    <Content Include="View\PlayerSprites\Left\08_special_atk_left\sp_atk_15.hKN4a.png" />
+    <Content Include="View\PlayerSprites\Left\08_special_atk_left\sp_atk_16.76ZwC.png" />
+    <Content Include="View\PlayerSprites\Left\08_special_atk_left\sp_atk_17.s34Co.png" />
+    <Content Include="View\PlayerSprites\Left\08_special_atk_left\sp_atk_18.g3Czx.png" />
+    <Content Include="View\PlayerSprites\Left\08_special_atk_left\sp_atk_2.DchCt.png" />
+    <Content Include="View\PlayerSprites\Left\08_special_atk_left\sp_atk_3.iT1Ml.png" />
+    <Content Include="View\PlayerSprites\Left\08_special_atk_left\sp_atk_4.OIbRj.png" />
+    <Content Include="View\PlayerSprites\Left\08_special_atk_left\sp_atk_5.A8r4U.png" />
+    <Content Include="View\PlayerSprites\Left\08_special_atk_left\sp_atk_6.zEHmD.png" />
+    <Content Include="View\PlayerSprites\Left\08_special_atk_left\sp_atk_7.lkrKM.png" />
+    <Content Include="View\PlayerSprites\Left\08_special_atk_left\sp_atk_8.zV5LX.png" />
+    <Content Include="View\PlayerSprites\Left\08_special_atk_left\sp_atk_9.fghL7.png" />
+    <Content Include="View\PlayerSprites\Left\09_defend_left\defend_1.cPrWz.png" />
+    <Content Include="View\PlayerSprites\Left\09_defend_left\defend_10.VTtEE.png" />
+    <Content Include="View\PlayerSprites\Left\09_defend_left\defend_2.sMaIh.png" />
+    <Content Include="View\PlayerSprites\Left\09_defend_left\defend_3.miAEh.png" />
+    <Content Include="View\PlayerSprites\Left\09_defend_left\defend_4.8V93h.png" />
+    <Content Include="View\PlayerSprites\Left\09_defend_left\defend_5.nw8wt.png" />
+    <Content Include="View\PlayerSprites\Left\09_defend_left\defend_6.VxrCe.png" />
+    <Content Include="View\PlayerSprites\Left\09_defend_left\defend_7.KkxM3.png" />
+    <Content Include="View\PlayerSprites\Left\09_defend_left\defend_8.UHXV9.png" />
+    <Content Include="View\PlayerSprites\Left\09_defend_left\defend_9.3oMzS.png" />
+    <Content Include="View\PlayerSprites\Left\10_take_hit_left\take_hit_1.haIv9.png" />
+    <Content Include="View\PlayerSprites\Left\10_take_hit_left\take_hit_2.1wCgL.png" />
+    <Content Include="View\PlayerSprites\Left\10_take_hit_left\take_hit_3.SwSyY.png" />
+    <Content Include="View\PlayerSprites\Left\10_take_hit_left\take_hit_4.G7SzR.png" />
+    <Content Include="View\PlayerSprites\Left\10_take_hit_left\take_hit_5.9bCbm.png" />
+    <Content Include="View\PlayerSprites\Left\10_take_hit_left\take_hit_6.7NV9K.png" />
+    <Content Include="View\PlayerSprites\Left\11_death_left\death_1.sO25R.png" />
+    <Content Include="View\PlayerSprites\Left\11_death_left\death_10.EIpUo.png" />
+    <Content Include="View\PlayerSprites\Left\11_death_left\death_11.I1MRl.png" />
+    <Content Include="View\PlayerSprites\Left\11_death_left\death_12.r0zre.png" />
+    <Content Include="View\PlayerSprites\Left\11_death_left\death_13.uBCSi.png" />
+    <Content Include="View\PlayerSprites\Left\11_death_left\death_2.A5uUX.png" />
+    <Content Include="View\PlayerSprites\Left\11_death_left\death_3.pxm21.png" />
+    <Content Include="View\PlayerSprites\Left\11_death_left\death_4.2F9T5.png" />
+    <Content Include="View\PlayerSprites\Left\11_death_left\death_5.6zooT.png" />
+    <Content Include="View\PlayerSprites\Left\11_death_left\death_6.KSElN.png" />
+    <Content Include="View\PlayerSprites\Left\11_death_left\death_7.8oPjq.png" />
+    <Content Include="View\PlayerSprites\Left\11_death_left\death_8.qeAQg.png" />
+    <Content Include="View\PlayerSprites\Left\11_death_left\death_9.9wbOi.png" />
+    <Content Include="View\PlayerSprites\Right\01_idle_right\idle_1.png" />
+    <Content Include="View\PlayerSprites\Right\01_idle_right\idle_2.png" />
+    <Content Include="View\PlayerSprites\Right\01_idle_right\idle_3.png" />
+    <Content Include="View\PlayerSprites\Right\01_idle_right\idle_4.png" />
+    <Content Include="View\PlayerSprites\Right\01_idle_right\idle_5.png" />
+    <Content Include="View\PlayerSprites\Right\01_idle_right\idle_6.png" />
+    <Content Include="View\PlayerSprites\Right\01_idle_right\idle_7.png" />
+    <Content Include="View\PlayerSprites\Right\01_idle_right\idle_8.png" />
+    <Content Include="View\PlayerSprites\Right\02_run_right\run_1.png" />
+    <Content Include="View\PlayerSprites\Right\02_run_right\run_2.png" />
+    <Content Include="View\PlayerSprites\Right\02_run_right\run_3.png" />
+    <Content Include="View\PlayerSprites\Right\02_run_right\run_4.png" />
+    <Content Include="View\PlayerSprites\Right\02_run_right\run_5.png" />
+    <Content Include="View\PlayerSprites\Right\02_run_right\run_6.png" />
+    <Content Include="View\PlayerSprites\Right\02_run_right\run_7.png" />
+    <Content Include="View\PlayerSprites\Right\02_run_right\run_8.png" />
+    <Content Include="View\PlayerSprites\Right\03_jump_down_right\jump_down_1.png" />
+    <Content Include="View\PlayerSprites\Right\03_jump_down_right\jump_down_2.png" />
+    <Content Include="View\PlayerSprites\Right\03_jump_down_right\jump_down_3.png" />
+    <Content Include="View\PlayerSprites\Right\03_jump_right\jump_1.png" />
+    <Content Include="View\PlayerSprites\Right\03_jump_right\jump_10.png" />
+    <Content Include="View\PlayerSprites\Right\03_jump_right\jump_11.png" />
+    <Content Include="View\PlayerSprites\Right\03_jump_right\jump_12.png" />
+    <Content Include="View\PlayerSprites\Right\03_jump_right\jump_13.png" />
+    <Content Include="View\PlayerSprites\Right\03_jump_right\jump_14.png" />
+    <Content Include="View\PlayerSprites\Right\03_jump_right\jump_15.png" />
+    <Content Include="View\PlayerSprites\Right\03_jump_right\jump_16.png" />
+    <Content Include="View\PlayerSprites\Right\03_jump_right\jump_17.png" />
+    <Content Include="View\PlayerSprites\Right\03_jump_right\jump_18.png" />
+    <Content Include="View\PlayerSprites\Right\03_jump_right\jump_19.png" />
+    <Content Include="View\PlayerSprites\Right\03_jump_right\jump_2.png" />
+    <Content Include="View\PlayerSprites\Right\03_jump_right\jump_20.png" />
+    <Content Include="View\PlayerSprites\Right\03_jump_right\jump_3.png" />
+    <Content Include="View\PlayerSprites\Right\03_jump_right\jump_4.png" />
+    <Content Include="View\PlayerSprites\Right\03_jump_right\jump_5.png" />
+    <Content Include="View\PlayerSprites\Right\03_jump_right\jump_6.png" />
+    <Content Include="View\PlayerSprites\Right\03_jump_right\jump_7.png" />
+    <Content Include="View\PlayerSprites\Right\03_jump_right\jump_8.png" />
+    <Content Include="View\PlayerSprites\Right\03_jump_right\jump_9.png" />
+    <Content Include="View\PlayerSprites\Right\03_jump_up_right\jump_up_1.png" />
+    <Content Include="View\PlayerSprites\Right\03_jump_up_right\jump_up_2.png" />
+    <Content Include="View\PlayerSprites\Right\03_jump_up_right\jump_up_3.png" />
+    <Content Include="View\PlayerSprites\Right\04_roll_right\roll_1.png" />
+    <Content Include="View\PlayerSprites\Right\04_roll_right\roll_2.png" />
+    <Content Include="View\PlayerSprites\Right\04_roll_right\roll_3.png" />
+    <Content Include="View\PlayerSprites\Right\04_roll_right\roll_4.png" />
+    <Content Include="View\PlayerSprites\Right\04_roll_right\roll_5.png" />
+    <Content Include="View\PlayerSprites\Right\04_roll_right\roll_6.png" />
+    <Content Include="View\PlayerSprites\Right\04_roll_right\roll_7.png" />
+    <Content Include="View\PlayerSprites\Right\04_roll_right\roll_8.png" />
+    <Content Include="View\PlayerSprites\Right\05_1_atk_right\1_atk_1.png" />
+    <Content Include="View\PlayerSprites\Right\05_1_atk_right\1_atk_10.png" />
+    <Content Include="View\PlayerSprites\Right\05_1_atk_right\1_atk_11.png" />
+    <Content Include="View\PlayerSprites\Right\05_1_atk_right\1_atk_2.png" />
+    <Content Include="View\PlayerSprites\Right\05_1_atk_right\1_atk_3.png" />
+    <Content Include="View\PlayerSprites\Right\05_1_atk_right\1_atk_4.png" />
+    <Content Include="View\PlayerSprites\Right\05_1_atk_right\1_atk_5.png" />
+    <Content Include="View\PlayerSprites\Right\05_1_atk_right\1_atk_6.png" />
+    <Content Include="View\PlayerSprites\Right\05_1_atk_right\1_atk_7.png" />
+    <Content Include="View\PlayerSprites\Right\05_1_atk_right\1_atk_8.png" />
+    <Content Include="View\PlayerSprites\Right\05_1_atk_right\1_atk_9.png" />
+    <Content Include="View\PlayerSprites\Right\06_2_atk_right\2_atk_1.png" />
+    <Content Include="View\PlayerSprites\Right\06_2_atk_right\2_atk_10.png" />
+    <Content Include="View\PlayerSprites\Right\06_2_atk_right\2_atk_11.png" />
+    <Content Include="View\PlayerSprites\Right\06_2_atk_right\2_atk_12.png" />
+    <Content Include="View\PlayerSprites\Right\06_2_atk_right\2_atk_13.png" />
+    <Content Include="View\PlayerSprites\Right\06_2_atk_right\2_atk_14.png" />
+    <Content Include="View\PlayerSprites\Right\06_2_atk_right\2_atk_15.png" />
+    <Content Include="View\PlayerSprites\Right\06_2_atk_right\2_atk_16.png" />
+    <Content Include="View\PlayerSprites\Right\06_2_atk_right\2_atk_17.png" />
+    <Content Include="View\PlayerSprites\Right\06_2_atk_right\2_atk_18.png" />
+    <Content Include="View\PlayerSprites\Right\06_2_atk_right\2_atk_19.png" />
+    <Content Include="View\PlayerSprites\Right\06_2_atk_right\2_atk_2.png" />
+    <Content Include="View\PlayerSprites\Right\06_2_atk_right\2_atk_3.png" />
+    <Content Include="View\PlayerSprites\Right\06_2_atk_right\2_atk_4.png" />
+    <Content Include="View\PlayerSprites\Right\06_2_atk_right\2_atk_5.png" />
+    <Content Include="View\PlayerSprites\Right\06_2_atk_right\2_atk_6.png" />
+    <Content Include="View\PlayerSprites\Right\06_2_atk_right\2_atk_7.png" />
+    <Content Include="View\PlayerSprites\Right\06_2_atk_right\2_atk_8.png" />
+    <Content Include="View\PlayerSprites\Right\06_2_atk_right\2_atk_9.png" />
+    <Content Include="View\PlayerSprites\Right\07_3_atk_right\3_atk_1.png" />
+    <Content Include="View\PlayerSprites\Right\07_3_atk_right\3_atk_10.png" />
+    <Content Include="View\PlayerSprites\Right\07_3_atk_right\3_atk_11.png" />
+    <Content Include="View\PlayerSprites\Right\07_3_atk_right\3_atk_12.png" />
+    <Content Include="View\PlayerSprites\Right\07_3_atk_right\3_atk_13.png" />
+    <Content Include="View\PlayerSprites\Right\07_3_atk_right\3_atk_14.png" />
+    <Content Include="View\PlayerSprites\Right\07_3_atk_right\3_atk_15.png" />
+    <Content Include="View\PlayerSprites\Right\07_3_atk_right\3_atk_16.png" />
+    <Content Include="View\PlayerSprites\Right\07_3_atk_right\3_atk_17.png" />
+    <Content Include="View\PlayerSprites\Right\07_3_atk_right\3_atk_18.png" />
+    <Content Include="View\PlayerSprites\Right\07_3_atk_right\3_atk_19.png" />
+    <Content Include="View\PlayerSprites\Right\07_3_atk_right\3_atk_2.png" />
+    <Content Include="View\PlayerSprites\Right\07_3_atk_right\3_atk_20.png" />
+    <Content Include="View\PlayerSprites\Right\07_3_atk_right\3_atk_21.png" />
+    <Content Include="View\PlayerSprites\Right\07_3_atk_right\3_atk_22.png" />
+    <Content Include="View\PlayerSprites\Right\07_3_atk_right\3_atk_23.png" />
+    <Content Include="View\PlayerSprites\Right\07_3_atk_right\3_atk_24.png" />
+    <Content Include="View\PlayerSprites\Right\07_3_atk_right\3_atk_25.png" />
+    <Content Include="View\PlayerSprites\Right\07_3_atk_right\3_atk_26.png" />
+    <Content Include="View\PlayerSprites\Right\07_3_atk_right\3_atk_27.png" />
+    <Content Include="View\PlayerSprites\Right\07_3_atk_right\3_atk_28.png" />
+    <Content Include="View\PlayerSprites\Right\07_3_atk_right\3_atk_3.png" />
+    <Content Include="View\PlayerSprites\Right\07_3_atk_right\3_atk_4.png" />
+    <Content Include="View\PlayerSprites\Right\07_3_atk_right\3_atk_5.png" />
+    <Content Include="View\PlayerSprites\Right\07_3_atk_right\3_atk_6.png" />
+    <Content Include="View\PlayerSprites\Right\07_3_atk_right\3_atk_7.png" />
+    <Content Include="View\PlayerSprites\Right\07_3_atk_right\3_atk_8.png" />
+    <Content Include="View\PlayerSprites\Right\07_3_atk_right\3_atk_9.png" />
+    <Content Include="View\PlayerSprites\Right\08_special_atk_right\sp_atk_1.png" />
+    <Content Include="View\PlayerSprites\Right\08_special_atk_right\sp_atk_10.png" />
+    <Content Include="View\PlayerSprites\Right\08_special_atk_right\sp_atk_11.png" />
+    <Content Include="View\PlayerSprites\Right\08_special_atk_right\sp_atk_12.png" />
+    <Content Include="View\PlayerSprites\Right\08_special_atk_right\sp_atk_13.png" />
+    <Content Include="View\PlayerSprites\Right\08_special_atk_right\sp_atk_14.png" />
+    <Content Include="View\PlayerSprites\Right\08_special_atk_right\sp_atk_15.png" />
+    <Content Include="View\PlayerSprites\Right\08_special_atk_right\sp_atk_16.png" />
+    <Content Include="View\PlayerSprites\Right\08_special_atk_right\sp_atk_17.png" />
+    <Content Include="View\PlayerSprites\Right\08_special_atk_right\sp_atk_18.png" />
+    <Content Include="View\PlayerSprites\Right\08_special_atk_right\sp_atk_2.png" />
+    <Content Include="View\PlayerSprites\Right\08_special_atk_right\sp_atk_3.png" />
+    <Content Include="View\PlayerSprites\Right\08_special_atk_right\sp_atk_4.png" />
+    <Content Include="View\PlayerSprites\Right\08_special_atk_right\sp_atk_5.png" />
+    <Content Include="View\PlayerSprites\Right\08_special_atk_right\sp_atk_6.png" />
+    <Content Include="View\PlayerSprites\Right\08_special_atk_right\sp_atk_7.png" />
+    <Content Include="View\PlayerSprites\Right\08_special_atk_right\sp_atk_8.png" />
+    <Content Include="View\PlayerSprites\Right\08_special_atk_right\sp_atk_9.png" />
+    <Content Include="View\PlayerSprites\Right\09_defend_right\defend_1.png" />
+    <Content Include="View\PlayerSprites\Right\09_defend_right\defend_10.png" />
+    <Content Include="View\PlayerSprites\Right\09_defend_right\defend_2.png" />
+    <Content Include="View\PlayerSprites\Right\09_defend_right\defend_3.png" />
+    <Content Include="View\PlayerSprites\Right\09_defend_right\defend_4.png" />
+    <Content Include="View\PlayerSprites\Right\09_defend_right\defend_5.png" />
+    <Content Include="View\PlayerSprites\Right\09_defend_right\defend_6.png" />
+    <Content Include="View\PlayerSprites\Right\09_defend_right\defend_7.png" />
+    <Content Include="View\PlayerSprites\Right\09_defend_right\defend_8.png" />
+    <Content Include="View\PlayerSprites\Right\09_defend_right\defend_9.png" />
+    <Content Include="View\PlayerSprites\Right\10_take_hit_right\take_hit_1.png" />
+    <Content Include="View\PlayerSprites\Right\10_take_hit_right\take_hit_2.png" />
+    <Content Include="View\PlayerSprites\Right\10_take_hit_right\take_hit_3.png" />
+    <Content Include="View\PlayerSprites\Right\10_take_hit_right\take_hit_4.png" />
+    <Content Include="View\PlayerSprites\Right\10_take_hit_right\take_hit_5.png" />
+    <Content Include="View\PlayerSprites\Right\10_take_hit_right\take_hit_6.png" />
+    <Content Include="View\PlayerSprites\Right\11_death_right\death_1.png" />
+    <Content Include="View\PlayerSprites\Right\11_death_right\death_10.png" />
+    <Content Include="View\PlayerSprites\Right\11_death_right\death_11.png" />
+    <Content Include="View\PlayerSprites\Right\11_death_right\death_12.png" />
+    <Content Include="View\PlayerSprites\Right\11_death_right\death_13.png" />
+    <Content Include="View\PlayerSprites\Right\11_death_right\death_2.png" />
+    <Content Include="View\PlayerSprites\Right\11_death_right\death_3.png" />
+    <Content Include="View\PlayerSprites\Right\11_death_right\death_4.png" />
+    <Content Include="View\PlayerSprites\Right\11_death_right\death_5.png" />
+    <Content Include="View\PlayerSprites\Right\11_death_right\death_6.png" />
+    <Content Include="View\PlayerSprites\Right\11_death_right\death_7.png" />
+    <Content Include="View\PlayerSprites\Right\11_death_right\death_8.png" />
+    <Content Include="View\PlayerSprites\Right\11_death_right\death_9.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Данный проект ссылается на пакеты NuGet, отсутствующие на этом компьютере. Используйте восстановление пакетов NuGet, чтобы скачать их.  Дополнительную информацию см. по адресу: http://go.microsoft.com/fwlink/?LinkID=322105. Отсутствует следующий файл: {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\NUnit3TestAdapter.4.2.1\build\net35\NUnit3TestAdapter.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\NUnit3TestAdapter.4.2.1\build\net35\NUnit3TestAdapter.props'))" />
+    <Error Condition="!Exists('packages\NUnit.3.13.3\build\NUnit.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\NUnit.3.13.3\build\NUnit.props'))" />
+  </Target>
+</Project>
